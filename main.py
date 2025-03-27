@@ -69,4 +69,7 @@ async def handle_message(message: cl.Message):
    
     history.append({"role": "assistant", "content": result.final_output})
     cl.user_session.set("history", history)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:cl.app", host="0.0.0.0", port=8000, reload=False)
     #await cl.Message(content=result.final_output).send()
